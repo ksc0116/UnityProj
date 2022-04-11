@@ -2858,6 +2858,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 4, z: 1}
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &1110162410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110162404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04289e2b8ea85074782d9fb5de721cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lev: 1
+  hp: 2500
+  atk: 10
+  def: 5
+  cri: 0.25
+  exp_Max: 100
+  exp_Cur: 0
+  hp_Cur: 0
 --- !u!1 &1163606983
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,6 +3704,7 @@ GameObject:
   - component: {fileID: 1712686515}
   - component: {fileID: 1712686518}
   - component: {fileID: 1712686517}
+  - component: {fileID: 1712686519}
   m_Layer: 5
   m_Name: CharacterInfoFrame
   m_TagString: Untagged
@@ -3805,6 +3826,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b73963069e14f4c96462f8baced2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1712686519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712686513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a7d4cfd55c36f4181ac76970cdad50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1110162410}
+  lev: {fileID: 619873250}
+  hp: {fileID: 1960256350}
+  atk: {fileID: 1606887884}
+  def: {fileID: 2075432543}
+  cri: {fileID: 2060318920}
+  expBar: {fileID: 1736427836}
 --- !u!1 &1736427834
 GameObject:
   m_ObjectHideFlags: 0
