@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    private GameObject dashEffect;
+    [SerializeField]
     private float moveSpeed = 2f;
     [SerializeField]
     private Transform cameraTransform;
@@ -22,6 +24,11 @@ public class PlayerController : MonoBehaviour
 
     private bool isRoll;
     public bool IsRoll { get { return isRoll; } set { isRoll = value; } }
+
+    private bool isDash;
+    public float defaultTime;
+
+    private bool isJump;
 
     private void Awake()
     {
@@ -42,6 +49,8 @@ public class PlayerController : MonoBehaviour
 
         Jump();
 
+
+        Dash();
     }
 
     private void InputManager()
@@ -78,13 +87,36 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isDash)
         {
+            isJump = true;
             Manager.instance.soundManager.Audio.PlayOneShot(Manager.instance.soundManager.Jump);
             movement.JumpTo();
+            StartCoroutine("JumpOut");
             player.JumpAni();
         }
     }
+    private IEnumerator JumpOut()
+    {
+        yield return new WaitForSeconds(0.85f);
+        isJump = false;
+    }
+    private void Dash()
+    {
+        if (Input.GetMouseButtonDown(1) && !isJump)
+        {
+            StartCoroutine("DashStart");
+        }
+    }
+    private IEnumerator DashStart()
+    {
+        isDash = true;
+        dashEffect.SetActive(true);
+        movement.MoveSpeed = 30f;
 
-
+        yield return new WaitForSeconds(0.3f);
+        isDash = false;
+        dashEffect.SetActive(false);
+        movement.MoveSpeed = 5f;
+    }
 }

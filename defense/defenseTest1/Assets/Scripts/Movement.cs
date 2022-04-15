@@ -6,6 +6,9 @@ public class Movement : MonoBehaviour
 {
     [SerializeField]
     private float moveSpeed = 2f;
+    public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; } }
+
+
     [SerializeField]
     private float jumpForce = 3.0f;
     private float gravity = -9.81f;
