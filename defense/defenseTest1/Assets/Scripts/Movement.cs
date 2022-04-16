@@ -16,32 +16,55 @@ public class Movement : MonoBehaviour
     private Vector3 direction;
     private CharacterController characterController;
 
+    // charactercontroller
+    /* private void Awake()
+     {
+         characterController = GetComponent<CharacterController>();
+     }
+
+     private void Update()
+     {
+         if (characterController.isGrounded == false)
+         {
+             direction.y += gravity * Time.deltaTime;
+         }
+
+         characterController.Move(direction * moveSpeed * Time.deltaTime);
+     }
+
+     public void MoveTo(Vector3 dir)
+     {
+         Vector3 tempDir = dir.normalized;
+         direction = new Vector3(tempDir.x, direction.y, tempDir.z);
+     }
+
+     public void JumpTo()
+     {
+         if (characterController.isGrounded == true)
+         {
+             direction.y = jumpForce;
+         }
+     }
+ */
+
+    private Rigidbody rigid;
     private void Awake()
     {
-        characterController = GetComponent<CharacterController>();
+        rigid = GetComponent<Rigidbody>();
     }
-
     private void Update()
     {
-        if (characterController.isGrounded == false)
-        {
-            direction.y+=gravity*Time.deltaTime;
-        }
-
-        characterController.Move(direction*moveSpeed*Time.deltaTime);
+        rigid.MovePosition(rigid.position+direction*moveSpeed*Time.deltaTime);
     }
 
     public void MoveTo(Vector3 dir)
     {
-        Vector3 tempDir=dir.normalized;
-        direction= new Vector3(tempDir.x,direction.y,tempDir.z);
+        Vector3 tempDir = dir.normalized;
+        direction = new Vector3(tempDir.x, direction.y, tempDir.z);
     }
 
     public void JumpTo()
     {
-        if(characterController.isGrounded == true)
-        {
-            direction.y = jumpForce;
-        }
+        rigid.AddForce(Vector3.up * jumpForce,ForceMode.Impulse);
     }
 }
