@@ -16,12 +16,14 @@ public class PlayerContoller : MonoBehaviour, IPointerDownHandler
     public float moveSpeed;
     public float rotateSpeed;
     NavMeshAgent playerNav;
+    Animator playerAni;
 
     private void Awake()
     {
         playerNav = player.GetComponent<NavMeshAgent>();
         playerNav.speed = moveSpeed;
         playerNav.angularSpeed = rotateSpeed;
+        playerAni = player.GetComponent<Animator>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -40,5 +42,10 @@ public class PlayerContoller : MonoBehaviour, IPointerDownHandler
                 playerNav.SetDestination(hit.point);
             }
         }
+    }
+
+    private void Update()
+    {
+        playerAni.SetBool("isWalk",playerNav.velocity!=Vector3.zero);
     }
 }
