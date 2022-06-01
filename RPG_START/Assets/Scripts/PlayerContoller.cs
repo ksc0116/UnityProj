@@ -41,6 +41,12 @@ public class PlayerContoller : MonoBehaviour, IPointerDownHandler
             {
                 playerNav.SetDestination(hit.point);
             }
+            else if(hit.transform.tag == "Player")
+            {
+                Manager.instance.manager_SE.seAudio.PlayOneShot(Manager.instance.manager_SE.btnA);
+
+                Manager.instance.manager_Inven.charInfoFrame.SetActive(true);
+            }
         }
     }
 

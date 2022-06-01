@@ -8,4 +8,5 @@ public class Manager_SE : MonoBehaviour
 
     [Header("[Clip]")]
     public AudioClip step;
+    public AudioClip btnA;
 }
