@@ -42,7 +42,13 @@ public class Items_Action : MonoBehaviour,IPointerUpHandler,IPointerDownHandler,
 
             if (releaseTime < 0.1f)
             {
-                // click event
+                Manager.instance.manager_SE.seAudio.PlayOneShot(Manager.instance.manager_SE.btnB);
+
+                Manager.instance.manager_Inven.itemInfoFrame.SetActive(false);
+
+                Manager.instance.manager_Inven.itemInfoFrame.GetComponent<ItemInfoFrame>().item = GetComponent<Items_Info>();
+
+                Manager.instance.manager_Inven.itemInfoFrame.SetActive(true);
             }
         }
     }
@@ -67,9 +73,10 @@ public class Items_Action : MonoBehaviour,IPointerUpHandler,IPointerDownHandler,
             if (releaseTime >= 0.1f)
             {
                 transform.localScale = new Vector3(1.3f,1.3f,1);
-                Debug.Log("Ω««‡¡ﬂ");
                 if (!dragging)
                 {
+                    Manager.instance.manager_Inven.itemInfoFrame.SetActive(false);
+
                     Manager.instance.manager_SE.seAudio.PlayOneShot(Manager.instance.manager_SE.drag);
 
                     dragging = true;
