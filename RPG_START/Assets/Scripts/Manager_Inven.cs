@@ -13,6 +13,7 @@ public class Manager_Inven : MonoBehaviour
     [Header("[Bag]")]
     public int gold;
     public TextMeshProUGUI goldAmount;
+    /*¡Ü*/public Transform rect;
 
 
     [Header("[Drag&Drop]")]

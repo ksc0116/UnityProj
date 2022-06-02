@@ -49,6 +49,9 @@ public class Items_Action : MonoBehaviour,IPointerUpHandler,IPointerDownHandler,
                 Manager.instance.manager_Inven.itemInfoFrame.GetComponent<ItemInfoFrame>().item = GetComponent<Items_Info>();
 
                 Manager.instance.manager_Inven.itemInfoFrame.SetActive(true);
+
+                /*¡Ü*/Manager.instance.manager_Inven.rect.position=transform.position;
+                /*¡Ü*/Manager.instance.manager_Inven.rect.gameObject.SetActive(true);
             }
         }
     }
@@ -84,6 +87,8 @@ public class Items_Action : MonoBehaviour,IPointerUpHandler,IPointerDownHandler,
                     transform.SetParent(Manager.instance.manager_Inven.parentOnDrag);
 
                     img.raycastTarget = false;
+
+                    /*¡Ü*/Manager.instance.manager_Inven.rect.gameObject.SetActive(false);
                 }
             }
             yield return null;

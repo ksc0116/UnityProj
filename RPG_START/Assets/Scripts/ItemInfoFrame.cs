@@ -16,6 +16,10 @@ public class ItemInfoFrame : MonoBehaviour
     public TextMeshProUGUI defBonus;
     public TextMeshProUGUI criBonus;
 
+    /*¡Ü*/[Header("[Button]")]
+    /*¡Ü*/public GameObject equipBtn;
+    /*¡Ü*/public GameObject releaseBtn;
+
     private void OnEnable()
     {
         statBonus.SetActive(false);
@@ -30,6 +34,20 @@ public class ItemInfoFrame : MonoBehaviour
             defBonus.text = string.Format("Def +{0}", item.defBonus);
             criBonus.text = string.Format("Cri +{0}", item.criBonus);
             statBonus.SetActive(true);
+
+            /*¡Ü*/if (item.equipped == true)
+            /*¡Ü*/{
+            /*¡Ü*/    releaseBtn.SetActive(true);
+            /*¡Ü*/}
+            /*¡Ü*/else if(item.equipped == false)
+            /*¡Ü*/{
+            /*¡Ü*/    equipBtn.SetActive(true);
+            /*¡Ü*/}
         }
     }
+    /*¡Ü*/private void OnDisable()
+    /*¡Ü*/{
+    /*¡Ü*/    releaseBtn.SetActive(false);
+    /*¡Ü*/    equipBtn.SetActive(false);
+    /*¡Ü*/}
 }
