@@ -46,6 +46,7 @@ public class PlayerContoller : MonoBehaviour, IPointerDownHandler
                 Manager.instance.manager_SE.seAudio.PlayOneShot(Manager.instance.manager_SE.btnA);
 
                 Manager.instance.manager_Inven.charInfoFrame.SetActive(true);
+                Manager.instance.manager_Inven.OpenBag();
             }
         }
     }
