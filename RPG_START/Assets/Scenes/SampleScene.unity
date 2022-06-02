@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 65744646}
   - component: {fileID: 65744649}
   - component: {fileID: 65744648}
+  - component: {fileID: 65744650}
   m_Layer: 5
   m_Name: CharInfoFrame
   m_TagString: Untagged
@@ -498,6 +499,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c26c3abda8b3e4080a334520c3f83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &65744650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65744644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec81517954ab894391101ddf1522e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1235802920}
+  lev: {fileID: 250584819}
+  hp: {fileID: 340135595}
+  atk: {fileID: 1139113976}
+  def: {fileID: 26597992}
+  cri: {fileID: 881425773}
+  expBar: {fileID: 1864281099}
 --- !u!1 &206530008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,6 +3170,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.51, y: 3.7, z: 1.65}
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &1235802920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235802914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde436fc430207f469ec3e964904b9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lev: 1
+  hp: 2500
+  atk: 10
+  def: 5
+  cri: 0.25
+  exp_Max: 100
+  exp_Cur: 0
+  hp_Cur: 0
 --- !u!4 &1239715635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 03f2428130b496343887dca4ecbfc19d, type: 3}
