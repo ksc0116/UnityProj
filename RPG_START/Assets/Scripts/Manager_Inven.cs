@@ -13,6 +13,12 @@ public class Manager_Inven : MonoBehaviour
     public int gold;
     public TextMeshProUGUI goldAmount;
 
+
+    [Header("[Drag&Drop]")]
+    public Transform selectedItem;
+    public Transform curParent;
+    public Transform parentOnDrag;
+
     public void OpenBag()
     {
         goldAmount.text=gold.ToString();
